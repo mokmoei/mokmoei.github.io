@@ -35,5 +35,5 @@ jobs:
       - run: git commit -m "Automatic deployment by github-actions"
         shell: bash
         
-      - run: git push origin HEAD:master --force
+      - run: git push origin HEAD:deploy-github-web-page --force
         shell: bash
