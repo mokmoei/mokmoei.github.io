@@ -21,6 +21,7 @@ class _MyStatelessWidgetState extends State<MyStatelessWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFA95962),
       appBar: AppBar(
         title: const Text('Profile'),
       ),
