@@ -10,57 +10,94 @@ class MainSlide extends StatefulWidget {
 class _MainSlideState extends State<MainSlide> {
   @override
   Widget build(BuildContext context) {
-    
-    return Row(
-      children: [
-        Container(
-          color: const Color(0xFFA95962),
-          child: Column(
+    return Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("images/profile_bg.png"),
+        ),
+      ),
+      child: Row(
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 'Hello',
                 style: TextStyle(
+                  fontWeight: FontWeight.w600,
                   fontSize: 30,
                   color: Colors.white,
                 ),
               ),
               Text(
                 "My name is",
-                style: TextStyle(fontSize: 24, color: Colors.white),
+                style: TextStyle(
+                  fontSize: 24,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
-              Text(
-                "Rapeepan",
-                style: TextStyle(fontSize: 64, color: Colors.white),
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.all(Radius.circular(8.0),),),
+                      
+                      width: 10,
+                      height: 120,
+                    ),
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Rapeepan",
+                        style: TextStyle(
+                          fontSize: 64,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                      Text(
+                        "Mokmoei",
+                        style: TextStyle(
+                          fontSize: 64,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-              Text(
-                "Mokmoei",
-                style: TextStyle(fontSize: 64, color: Colors.white),
-              )
             ],
           ),
-        ),
-       Spacer(),
-        Column(
-          children: [
-            const SkillCard(
-              TextSkill: ("Flutter"),
-              imageSkill:
-                  ("https://images.ctfassets.net/23aumh6u8s0i/4TsG2mTRrLFhlQ9G1m19sC/4c9f98d56165a0bdd71cbe7b9c2e2484/flutter"),
-            ),
-            SkillCard(
-              TextSkill: ("UX/UI"),
-              imageSkill:
-                  ("https://appinventiv.com/wp-content/uploads/sites/1/2020/02/mobile-app-architecture.png"),
-            ),
-            SkillCard(
-              TextSkill: ("Photo"),
-              imageSkill:
-                  ("https://appinventiv.com/wp-content/uploads/sites/1/2020/02/mobile-app-architecture.png"),
-            ),
-          ],
-        ),
-      ],
+          Spacer(),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: const SkillCard(
+                  TextSkill: ("Flutter"),
+                  imageSkill: ("flutter.png"),
+                ),
+              ),
+              SkillCard(
+                TextSkill: ("UX/UI"),
+                imageSkill: ("uxui.png"),
+              ),
+              SkillCard(
+                TextSkill: ("Photo"),
+                imageSkill: ("photo.jpg"),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
@@ -83,7 +120,12 @@ class SkillCard extends StatelessWidget {
           height: 36.82,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Center(child: Text(TextSkill)),
+            child: Center(
+              child: Text(
+                TextSkill,
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+              ),
+            ),
           ),
           decoration: const BoxDecoration(
               color: Color(0xFFC8D0B8),
@@ -98,7 +140,7 @@ class SkillCard extends StatelessWidget {
               borderRadius: const BorderRadius.all(Radius.circular(15.0)),
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: NetworkImage(imageSkill),
+                image: AssetImage('images/' + imageSkill),
               ),
             ),
           ),

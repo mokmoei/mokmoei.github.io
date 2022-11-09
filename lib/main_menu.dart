@@ -43,25 +43,30 @@ class _MyStatelessWidgetState extends State<MyStatelessWidget> {
             }
           });
         },
-        child: PageView(
-          controller: pageController,
-          physics: NeverScrollableScrollPhysics(),
-          scrollDirection: Axis.vertical,
-          pageSnapping: true,
-          onPageChanged: (index) {
-            this.index = index;
-          },
-          children: [
-            const MainSlide(),
-            Container(
-              color: Colors.blue,
-              child: const Center(child: Text('Infomation')),
+        child: Center(
+          child: Container(
+            constraints: BoxConstraints( maxWidth: 1000),
+            child: PageView(
+              controller: pageController,
+              physics: NeverScrollableScrollPhysics(),
+              scrollDirection: Axis.vertical,
+              pageSnapping: true,
+              onPageChanged: (index) {
+                this.index = index;
+              },
+              children: [
+                const MainSlide(),
+                Container(
+                  color: Colors.blue,
+                  child: const Center(child: Text('Infomation')),
+                ),
+                Container(
+                  color: Colors.green,
+                  child: const Center(child: Text('Contracts')),
+                )
+              ],
             ),
-            Container(
-              color: Colors.green,
-              child: const Center(child: Text('Contracts')),
-            )
-          ],
+          ),
         ),
       ),
     );
