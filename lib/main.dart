@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:web_profile/main_menu.dart';
 
 void main() => runApp(const MyApp());
@@ -9,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(textTheme: GoogleFonts.rubikTextTheme()),
       title: 'Web Resume',
       scrollBehavior: AppScrollBehavior(),
       home: MyStatelessWidget(),
