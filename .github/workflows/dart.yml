@@ -21,7 +21,12 @@ jobs:
         run: flutter pub get
 
       - name: Build
-        run: flutter build web
+        run: flutter build web --release  --dart2js-optimization O4
+      
+      # bug auto move assets to new assets | can delete this state if no found issue
+      - name: Fix bug Path asset
+        run: bash path_asset_deploy.sh && cd ..
+        shell: bash
 
       - run: git config user.name github-actions
         shell: bash
