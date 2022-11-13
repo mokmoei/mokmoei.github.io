@@ -10,10 +10,30 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(textTheme: GoogleFonts.rubikTextTheme()),
+      theme: ThemeData(
+        backgroundColor: const Color(0xFFA95962),
+        textTheme: GoogleFonts.rubikTextTheme(),
+        textButtonTheme: TextButtonThemeData(
+          style: ButtonStyle(
+            shape: MaterialStateProperty.all(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+            textStyle: MaterialStateProperty.all(
+              const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 24,
+              ),
+            ),
+            overlayColor: MaterialStateProperty.all(Colors.white30),
+            foregroundColor: MaterialStateProperty.all(Colors.white),
+          ),
+        ),
+      ),
       title: 'Web Resume',
       scrollBehavior: AppScrollBehavior(),
-      home: MyStatelessWidget(),
+      home: const MyStatelessWidget(),
     );
   }
 }

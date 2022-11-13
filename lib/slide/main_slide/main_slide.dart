@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:web_profile/const/image_path_const.dart';
 
 class MainSlide extends StatefulWidget {
   const MainSlide({super.key});
@@ -13,7 +14,8 @@ class _MainSlideState extends State<MainSlide> {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("images/profile_bg.png"),
+          image: AssetImage(ImagePathConst.profileBg),
+          fit: BoxFit.fitHeight,
         ),
       ),
       child: Row(
@@ -43,8 +45,12 @@ class _MainSlideState extends State<MainSlide> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
-                      decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.all(Radius.circular(8.0),),),
-                      
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(8.0),
+                        ),
+                      ),
                       width: 10,
                       height: 120,
                     ),
@@ -127,9 +133,7 @@ class SkillCard extends StatelessWidget {
               ),
             ),
           ),
-          decoration: const BoxDecoration(
-              color: Color(0xFFC8D0B8),
-              borderRadius: BorderRadius.all(Radius.circular(15.0))),
+          decoration: const BoxDecoration(color: Color(0xFFC8D0B8), borderRadius: BorderRadius.all(Radius.circular(15.0))),
         ),
         Padding(
           padding: const EdgeInsets.all(10.0),
