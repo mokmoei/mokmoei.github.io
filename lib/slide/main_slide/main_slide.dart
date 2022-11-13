@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:web_profile/const/image_path_const.dart';
+import 'package:web_profile/constants/image_path_const.dart';
 import 'package:web_profile/slide/main_slide/widgets/name_widget.dart';
 import 'package:web_profile/slide/main_slide/widgets/skills_widget.dart';
 
