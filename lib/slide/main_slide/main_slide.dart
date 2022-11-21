@@ -16,7 +16,10 @@ class _MainSlideState extends State<MainSlide> {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(ImagePathConst.profileBg),
+          image: AssetImage('assets/images/image.webp'),
+          filterQuality: FilterQuality.high,
+          isAntiAlias: true,
+          opacity: 1,
           fit: BoxFit.fitHeight,
         ),
       ),
