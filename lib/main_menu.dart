@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:throttling/throttling.dart';
+import 'package:web_profile/slide/education/education_slide.dart';
 import 'package:web_profile/slide/infomation/infomation_slide.dart';
 import 'package:web_profile/slide/main_slide/main_slide.dart';
 
@@ -86,11 +87,14 @@ class _MyStatelessWidgetState extends State<MyStatelessWidget> {
                 },
                 children: [
                   // const MainSlide(),
-                  const InfomationSlide(),
+                  // const InfomationSlide(),
+                  educationSlide(),
                   Container(
                     color: Colors.green,
                     child: const Center(child: Text('Contracts')),
-                  )
+                  ),
+                  
+
                 ],
               ),
             ),
