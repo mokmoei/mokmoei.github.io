@@ -26,9 +26,9 @@ class SkillWidget extends StatelessWidget {
             ),
           if (isSmallSize)
             Row(
-              children: [
+              children: const [
                 Spacer(),
-                const SkillCard(
+                SkillCard(
                   textSkill: ("UX/UI"),
                   imageSkill: ("uxui.png"),
                 ),

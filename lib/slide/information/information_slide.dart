@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class InfomationSlide extends StatelessWidget {
-  const InfomationSlide({Key? key}) : super(key: key);
+class InformationSlide extends StatelessWidget {
+  const InformationSlide({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 100, bottom: 40),
+        const Padding(
+          padding: EdgeInsets.only(top: 100, bottom: 40),
           child: Text(
             "PERSONAL INFOMATION",
             style: TextStyle(
@@ -33,8 +33,8 @@ class InfomationSlide extends StatelessWidget {
                 ),
                 TextDot("Rapeepan Mokmoei"),
                 TextDot("I'm 24 year old"),
-                TextDot("I live in Thoeng District,Province Chiang Rai"),
-                TextDot(" I'm a Thai person. "),
+                TextDot("I live in Thoeng District, Province Chiang Rai"),
+                TextDot("I'm a Thai person."),
               ],
             ),
             Column(
@@ -58,7 +58,7 @@ class InfomationSlide extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(
-                    "Interrest",
+                    "Interest",
                     style: TextStyle(fontSize: 24.0),
                   ),
                 ),
@@ -86,7 +86,7 @@ class TextDot extends StatelessWidget {
         Container(
           width: 10,
           height: 10,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Colors.white,
             shape: BoxShape.circle,
           ),
@@ -98,7 +98,7 @@ class TextDot extends StatelessWidget {
           ),
           child: Text(
             text,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 20,
             ),
           ),
