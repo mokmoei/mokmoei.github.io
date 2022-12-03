@@ -5,6 +5,7 @@ import 'package:web_profile/slide/education/education_slide.dart';
 import 'package:web_profile/slide/experian/experrian_slide.dart';
 import 'package:web_profile/slide/infomation/infomation_slide.dart';
 import 'package:web_profile/slide/main_slide/main_slide.dart';
+import 'package:web_profile/widgets/max_size_container_widget.dart';
 
 class MyStatelessWidget extends StatefulWidget {
   const MyStatelessWidget({super.key});
@@ -23,75 +24,89 @@ class _MyStatelessWidgetState extends State<MyStatelessWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: const Color(0xFFA95962),
-      child: Center(
-        child: Scaffold(
-          backgroundColor: const Color(0xFFA95962),
-          appBar: AppBar(
-            elevation: 0,
-            backgroundColor: Colors.transparent,
-            title: const Text('Profile'),
-            actions: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextButton(
-                  onPressed: () {},
-                  child: const Text('MAIN'),
-                ),
-              ),
-              const SizedBox(width: 8),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextButton(
-                  onPressed: () {},
-                  child: const Text('INFO'),
-                ),
-              ),
-              const SizedBox(width: 8),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextButton(
-                  onPressed: () {},
-                  child: const Text('CONTRACT'),
+    return Scaffold(
+      backgroundColor: const Color(0xFFA95962),
+      endDrawer: const Drawer(
+        backgroundColor: Colors.black45,
+      ),
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        // remove Drawer Icon
+        actions: const [SizedBox.shrink()],
+        title: MaxSizeContainerWidget(
+          child: Row(
+            children: [
+              const Text('Profile'),
+              Expanded(
+                child: LayoutBuilder(
+                  builder: (contextIn, boxConstraints) {
+                    return boxConstraints.maxWidth > 400
+                        ? Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              TextButton(
+                                onPressed: () {},
+                                child: const Text('MAIN'),
+                              ),
+                              const SizedBox(width: 8),
+                              TextButton(
+                                onPressed: () {},
+                                child: const Text('INFO'),
+                              ),
+                              const SizedBox(width: 8),
+                              TextButton(
+                                onPressed: () {},
+                                child: const Text('CONTRACT'),
+                              ),
+                            ],
+                          )
+                        : Align(
+                            alignment: Alignment.centerRight,
+                            child: IconButton(
+                              icon: const Icon(Icons.more),
+                              onPressed: () => Scaffold.of(contextIn).openEndDrawer(),
+                            ),
+                          );
+                  },
                 ),
               ),
             ],
           ),
-          body: Listener(
-            onPointerSignal: (pointerSignal) {
-              thr.throttle(() {
-                if (pointerSignal is PointerScrollEvent) {
-                  if (pointerSignal.scrollDelta.dy > 0) {
-                    pageController.nextPage(
-                      curve: _curve,
-                      duration: _animationDuration,
-                    );
-                  } else {
-                    pageController.previousPage(
-                      duration: _animationDuration,
-                      curve: _curve,
-                    );
-                  }
-                }
-              });
-            },
-            child: PageView(
-              controller: pageController,
-              physics: const NeverScrollableScrollPhysics(),
-              scrollDirection: Axis.vertical,
-              pageSnapping: true,
-              onPageChanged: (index) {
-                this.index = index;
-              },
-              children: const [
-                MainSlide(),
-                InfomationSlide(),
-                educationSlide(),
-                experian(),
-              ],
-            ),
-          ),
+        ),
+      ),
+      body: Listener(
+        onPointerSignal: (pointerSignal) {
+          thr.throttle(() {
+            if (pointerSignal is PointerScrollEvent) {
+              if (pointerSignal.scrollDelta.dy > 0) {
+                pageController.nextPage(
+                  curve: _curve,
+                  duration: _animationDuration,
+                );
+              } else {
+                pageController.previousPage(
+                  duration: _animationDuration,
+                  curve: _curve,
+                );
+              }
+            }
+          });
+        },
+        child: PageView(
+          controller: pageController,
+          physics: const NeverScrollableScrollPhysics(),
+          scrollDirection: Axis.vertical,
+          pageSnapping: true,
+          onPageChanged: (index) {
+            this.index = index;
+          },
+          children: const [
+            MainSlide(),
+            InfomationSlide(),
+            educationSlide(),
+            experian(),
+          ],
         ),
       ),
     );

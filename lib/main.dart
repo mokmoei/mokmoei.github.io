@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
             textStyle: MaterialStateProperty.all(
               const TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 24,
+                fontSize: 18,
               ),
             ),
             overlayColor: MaterialStateProperty.all(Colors.white30),
