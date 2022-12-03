@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:throttling/throttling.dart';
 import 'package:web_profile/slide/education/education_slide.dart';
+import 'package:web_profile/slide/experian/experrian_slide.dart';
 import 'package:web_profile/slide/infomation/infomation_slide.dart';
 import 'package:web_profile/slide/main_slide/main_slide.dart';
 
@@ -85,16 +86,11 @@ class _MyStatelessWidgetState extends State<MyStatelessWidget> {
                 onPageChanged: (index) {
                   this.index = index;
                 },
-                children: [
-                  // const MainSlide(),
-                  // const InfomationSlide(),
-                  educationSlide(),
-                  Container(
-                    color: Colors.green,
-                    child: const Center(child: Text('Contracts')),
-                  ),
-                  
-
+                children: const [
+                  // MainSlide(),
+                  // InfomationSlide(),
+                  // educationSlide(),
+                  experian(),
                 ],
               ),
             ),
