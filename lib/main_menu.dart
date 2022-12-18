@@ -3,8 +3,13 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:throttling/throttling.dart';
-
+import 'package:web_profile/slide/education/education_slide.dart';
+import 'package:web_profile/slide/experian/experian_slide.dart';
+import 'package:web_profile/slide/information/information_slide.dart';
 import 'package:web_profile/slide/main_slide/main_slide.dart';
+
+
+
 
 import 'package:web_profile/widgets/max_size_container_widget.dart';
 
@@ -104,9 +109,9 @@ class _MyStatelessWidgetState extends State<MyStatelessWidget> {
           },
           children: const [
             MainSlide(),
-            // InformationSlide(),
-            // EducationSlide(),
-            // Experian(),
+            InformationSlide(),
+            EducationSlide(),
+            Experian(),
           ],
         ),
       ),

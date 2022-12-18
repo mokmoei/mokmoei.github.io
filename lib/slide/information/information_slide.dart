@@ -31,9 +31,8 @@ class InformationSlide extends StatelessWidget {
                     children: const [
                       Padding(
                         padding: EdgeInsets.all(8.0),
-                        child: Text(
+                        child: TitleText(
                           "My Name",
-                          style: TextStyle(fontSize: 24.0),
                         ),
                       ),
                       TextDot("Rapeepan Mokmoei"),
@@ -47,9 +46,8 @@ class InformationSlide extends StatelessWidget {
                     children: const [
                       Padding(
                         padding: EdgeInsets.all(8.0),
-                        child: Text(
+                        child: TitleText(
                           "My Hobby",
-                          style: TextStyle(fontSize: 24.0),
                         ),
                       ),
                       TextDot("travel"),
@@ -62,9 +60,8 @@ class InformationSlide extends StatelessWidget {
                     children: const [
                       Padding(
                         padding: EdgeInsets.all(8.0),
-                        child: Text(
+                        child: TitleText(
                           "Interest",
-                          style: TextStyle(fontSize: 24.0),
                         ),
                       ),
                       TextDot("mobile application"),
@@ -74,7 +71,6 @@ class InformationSlide extends StatelessWidget {
                   ),
                 ],
               ),
-              // Container(height: 360,),
             ],
           ),
         ),
@@ -85,11 +81,12 @@ class InformationSlide extends StatelessWidget {
             height: 300,
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
-                topRight: Radius.circular(300),
-                bottomRight: Radius.circular(300),
+                topRight: Radius.circular(500),
+                bottomRight: Radius.circular(500),
               ),
               image: DecorationImage(
                 image: AssetImage("assets/images/personimage.jpg"),
+                fit: BoxFit.cover,
               ),
             ),
           ),
@@ -124,8 +121,31 @@ class TextDot extends StatelessWidget {
             text,
             style: const TextStyle(
               fontSize: 20,
+              color: Colors.white,
             ),
           ),
+        ),
+      ],
+    );
+  }
+}
+
+class TitleText extends StatelessWidget {
+  final String text;
+  const TitleText(this.text, {Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        Text(
+          text,
+          style: const TextStyle(fontSize: 24.0, color: Colors.white),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(width: 40,height: 2,color: Colors.white,),
         ),
       ],
     );
