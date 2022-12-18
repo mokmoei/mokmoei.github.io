@@ -1,3 +1,5 @@
+import 'package:universal_html/html.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:throttling/throttling.dart';
@@ -15,8 +17,8 @@ class MyStatelessWidget extends StatefulWidget {
 
 class _MyStatelessWidgetState extends State<MyStatelessWidget> {
   int index = 0;
-  final pageController = PageController();
-  final _animationDuration = const Duration(milliseconds: 400);
+  final pageController = PageController(keepPage: true);
+  final _animationDuration = const Duration(milliseconds: 100);
   final _curve = Curves.easeIn;
 
   final thr = Throttling(duration: const Duration(milliseconds: 200));
@@ -76,7 +78,7 @@ class _MyStatelessWidgetState extends State<MyStatelessWidget> {
         ),
       ),
       body: Listener(
-        onPointerSignal: (pointerSignal) {
+        onPointerSignal: (PointerSignalEvent pointerSignal) {
           thr.throttle(() {
             if (pointerSignal is PointerScrollEvent) {
               if (pointerSignal.scrollDelta.dy > 0) {
@@ -95,9 +97,8 @@ class _MyStatelessWidgetState extends State<MyStatelessWidget> {
         },
         child: PageView(
           controller: pageController,
-          physics: const NeverScrollableScrollPhysics(),
+          physics: kIsWeb && window.navigator.userAgent.toString().toLowerCase().contains('mobile') ? const PageScrollPhysics() : const NeverScrollableScrollPhysics(),
           scrollDirection: Axis.vertical,
-          pageSnapping: true,
           onPageChanged: (index) {
             this.index = index;
           },
