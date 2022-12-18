@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:web_profile/widgets/max_size_container_widget.dart';
 
 class InformationSlide extends StatelessWidget {
   const InformationSlide({Key? key}) : super(key: key);
@@ -6,70 +7,93 @@ class InformationSlide extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Padding(
-          padding: EdgeInsets.only(top: 100, bottom: 40),
-          child: Text(
-            "PERSONAL INFOMATION",
-            style: TextStyle(
-                fontSize: 96.0,
-                fontWeight: FontWeight.w500,
-                color: Colors.white),
+        MaxSizeContainerWidget(
+          child: Column(
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(top: 100, bottom: 40),
+                child: Text(
+                  "PERSONAL INFOMATION",
+                  style: TextStyle(
+                      fontSize: 96.0,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          "My Name",
+                          style: TextStyle(fontSize: 24.0),
+                        ),
+                      ),
+                      TextDot("Rapeepan Mokmoei"),
+                      TextDot("I'm 24 year old"),
+                      TextDot("I live in Thoeng District, Province Chiang Rai"),
+                      TextDot("I'm a Thai person."),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          "My Hobby",
+                          style: TextStyle(fontSize: 24.0),
+                        ),
+                      ),
+                      TextDot("travel"),
+                      TextDot("coding"),
+                      TextDot("photography,photo editing"),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          "Interest",
+                          style: TextStyle(fontSize: 24.0),
+                        ),
+                      ),
+                      TextDot("mobile application"),
+                      TextDot("UX/UI design"),
+                      TextDot("photography"),
+                    ],
+                  ),
+                ],
+              ),
+              // Container(height: 360,),
+            ],
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text(
-                    "My Name",
-                    style: TextStyle(fontSize: 24.0),
-                  ),
-                ),
-                TextDot("Rapeepan Mokmoei"),
-                TextDot("I'm 24 year old"),
-                TextDot("I live in Thoeng District, Province Chiang Rai"),
-                TextDot("I'm a Thai person."),
-              ],
+        Padding(
+          padding: const EdgeInsets.only(top: 40),
+          child: Container(
+            width: 1280,
+            height: 300,
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(300),
+                bottomRight: Radius.circular(300),
+              ),
+              image: DecorationImage(
+                image: AssetImage("assets/images/personimage.jpg"),
+              ),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text(
-                    "My Hobby",
-                    style: TextStyle(fontSize: 24.0),
-                  ),
-                ),
-                TextDot("travel"),
-                TextDot("coding"),
-                TextDot("photography,photo editing"),
-              ],
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text(
-                    "Interest",
-                    style: TextStyle(fontSize: 24.0),
-                  ),
-                ),
-                TextDot("mobile application"),
-                TextDot("UX/UI design"),
-                TextDot("photography"),
-              ],
-            ),
-          ],
+          ),
         ),
-    // Container(height: 360,),
       ],
     );
   }

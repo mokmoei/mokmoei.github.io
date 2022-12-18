@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        backgroundColor: const Color(0xFFA95962),
+        scaffoldBackgroundColor: const Color(0xFF987554),
         textTheme: GoogleFonts.rubikTextTheme(),
         textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(

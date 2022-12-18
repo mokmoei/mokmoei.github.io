@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:web_profile/slide/main_slide/widgets/name_widget.dart';
-import 'package:web_profile/slide/main_slide/widgets/skills_widget.dart';
-import 'package:web_profile/widgets/max_size_container_widget.dart';
 
 class MainSlide extends StatefulWidget {
   const MainSlide({super.key});
@@ -14,36 +12,37 @@ class MainSlide extends StatefulWidget {
 class _MainSlideState extends State<MainSlide> {
   @override
   Widget build(BuildContext context) {
-    return MaxSizeContainerWidget(
+    return Expanded(
       child: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/image.webp'),
+            image: AssetImage('assets/images/mainim.jpg'),
             filterQuality: FilterQuality.high,
             isAntiAlias: true,
             opacity: 1,
-            fit: BoxFit.fitHeight,
+            fit: BoxFit.cover,
           ),
         ),
         child: LayoutBuilder(
           builder: (_, boxConstraints) {
-            return boxConstraints.maxWidth >= 600
+            return boxConstraints.maxWidth >= 750
                 ? Row(
                     children: const [
-                      NameWidget(),
+                      Padding(
+                        padding: EdgeInsets.only(left: 200),
+                        child: NameWidget(),
+                      ),
                       Spacer(),
-                      SkillWidget(),
                     ],
                   )
                 : Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: const [
-                      NameWidget(),
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: SkillWidget(),
-                        ),
-                      ),
+                      SafeArea(
+                          child: Padding(
+                        padding: EdgeInsets.only(top: 20, left: 16),
+                        child: NameWidget(),
+                      )),
                     ],
                   );
           },

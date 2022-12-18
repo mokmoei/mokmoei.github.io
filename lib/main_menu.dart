@@ -1,10 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:throttling/throttling.dart';
-import 'package:web_profile/slide/education/education_slide.dart';
-import 'package:web_profile/slide/experian/experian_slide.dart';
-import 'package:web_profile/slide/information/information_slide.dart';
+
 import 'package:web_profile/slide/main_slide/main_slide.dart';
+
 import 'package:web_profile/widgets/max_size_container_widget.dart';
 
 class MyStatelessWidget extends StatefulWidget {
@@ -25,7 +24,7 @@ class _MyStatelessWidgetState extends State<MyStatelessWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFA95962),
+      extendBodyBehindAppBar: true,
       endDrawer: const Drawer(
         backgroundColor: Colors.black45,
       ),
@@ -65,7 +64,8 @@ class _MyStatelessWidgetState extends State<MyStatelessWidget> {
                             alignment: Alignment.centerRight,
                             child: IconButton(
                               icon: const Icon(Icons.more),
-                              onPressed: () => Scaffold.of(contextIn).openEndDrawer(),
+                              onPressed: () =>
+                                  Scaffold.of(contextIn).openEndDrawer(),
                             ),
                           );
                   },
@@ -103,9 +103,9 @@ class _MyStatelessWidgetState extends State<MyStatelessWidget> {
           },
           children: const [
             MainSlide(),
-            InformationSlide(),
-            EducationSlide(),
-            Experian(),
+            // InformationSlide(),
+            // EducationSlide(),
+            // Experian(),
           ],
         ),
       ),
