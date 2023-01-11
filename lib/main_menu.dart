@@ -4,6 +4,10 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:throttling/throttling.dart';
 import 'package:web_profile/slide/contract/contract_slide.dart';
+import 'package:web_profile/slide/education/education_slide.dart';
+import 'package:web_profile/slide/experian/experian_slide.dart';
+import 'package:web_profile/slide/information/information_slide.dart';
+import 'package:web_profile/slide/main_slide/main_slide.dart';
 
 
 
@@ -116,10 +120,10 @@ class _MyStatelessWidgetState extends State<MyStatelessWidget> {
             this.index = index;
           },
           children: const [
-            // MainSlide(),
-            // InformationSlide(),
-            // EducationSlide(),
-            // Experian(),
+            MainSlide(),
+            InformationSlide(),
+            EducationSlide(),
+            Experian(),
             Contract(),
           ],
         ),
