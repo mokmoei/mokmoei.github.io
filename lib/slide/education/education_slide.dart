@@ -14,21 +14,30 @@ class EducationSlide extends StatelessWidget {
             image: AssetImage("assets/images/education.jpg"),
           ),
           Expanded(
-            child: Container(
+            child: SizedBox(
               height: 700,
-              color: Color(0XFF664229),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
                   Text(
                     "EDUCATION",
-                    style: TextStyle(fontSize: 24,color: Colors.white),
+                    style: TextStyle(fontSize: 24, color: Colors.white),
                   ),
                   Padding(
                     padding: EdgeInsets.only(top: 20),
-                    child: Text("2560 - 2564",style: TextStyle(color: Colors.white,),),
+                    child: Text(
+                      "2560 - 2564",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
-                  Text("University of phayao,B.sc (Public health)",style: TextStyle(color: Colors.white,),),
+                  Text(
+                    "University of phayao,B.sc (Public health)",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
                 ],
               ),
             ),

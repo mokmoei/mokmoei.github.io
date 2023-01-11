@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:web_profile/slide/experian/experian_slide.dart';
 import 'package:web_profile/widgets/max_size_container_widget.dart';
 
 class InformationSlide extends StatelessWidget {
@@ -31,7 +32,7 @@ class InformationSlide extends StatelessWidget {
                     children: const [
                       Padding(
                         padding: EdgeInsets.all(8.0),
-                        child: TitleText(
+                        child: LetterSpacing(
                           "My Name",
                         ),
                       ),
@@ -46,7 +47,7 @@ class InformationSlide extends StatelessWidget {
                     children: const [
                       Padding(
                         padding: EdgeInsets.all(8.0),
-                        child: TitleText(
+                        child: LetterSpacing(
                           "My Hobby",
                         ),
                       ),
@@ -60,7 +61,7 @@ class InformationSlide extends StatelessWidget {
                     children: const [
                       Padding(
                         padding: EdgeInsets.all(8.0),
-                        child: TitleText(
+                        child: LetterSpacing(
                           "Interest",
                         ),
                       ),

@@ -3,10 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:throttling/throttling.dart';
-import 'package:web_profile/slide/education/education_slide.dart';
-import 'package:web_profile/slide/experian/experian_slide.dart';
-import 'package:web_profile/slide/information/information_slide.dart';
-import 'package:web_profile/slide/main_slide/main_slide.dart';
+import 'package:web_profile/slide/contract/contract_slide.dart';
 
 
 
@@ -65,6 +62,11 @@ class _MyStatelessWidgetState extends State<MyStatelessWidget> {
                                 onPressed: () {},
                                 child: const Text('CONTRACT'),
                               ),
+                              const SizedBox(width: 8),
+                              TextButton(
+                                onPressed: () {},
+                                child: const Text('EDUCATION'),
+                              ),
                             ],
                           )
                         : Align(
@@ -102,16 +104,23 @@ class _MyStatelessWidgetState extends State<MyStatelessWidget> {
         },
         child: PageView(
           controller: pageController,
-          physics: kIsWeb && window.navigator.userAgent.toString().toLowerCase().contains('mobile') ? const PageScrollPhysics() : const NeverScrollableScrollPhysics(),
+          physics: kIsWeb &&
+                  window.navigator.userAgent
+                      .toString()
+                      .toLowerCase()
+                      .contains('mobile')
+              ? const PageScrollPhysics()
+              : const NeverScrollableScrollPhysics(),
           scrollDirection: Axis.vertical,
           onPageChanged: (index) {
             this.index = index;
           },
           children: const [
-            MainSlide(),
-            InformationSlide(),
-            EducationSlide(),
-            Experian(),
+            // MainSlide(),
+            // InformationSlide(),
+            // EducationSlide(),
+            // Experian(),
+            Contract(),
           ],
         ),
       ),
