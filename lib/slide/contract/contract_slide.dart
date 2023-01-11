@@ -46,8 +46,8 @@ class Contract extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.only(top: 20.0),
                       child: TextImage(
-                      "Facebook : facebook.com/rapepan.mokmoie",
-                      ("assets/images/facebook-logo.png"),
+                        "Facebook : facebook.com/rapepan.mokmoei",
+                        ("assets/images/facebook-logo.png"),
                       ),
                     ),
                   ],
@@ -75,6 +75,8 @@ class TextImage extends StatelessWidget {
           photoText,
           width: 26,
           height: 26,
+          filterQuality: FilterQuality.high,
+          fit: BoxFit.fill,
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),

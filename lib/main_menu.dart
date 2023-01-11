@@ -9,9 +9,6 @@ import 'package:web_profile/slide/experian/experian_slide.dart';
 import 'package:web_profile/slide/information/information_slide.dart';
 import 'package:web_profile/slide/main_slide/main_slide.dart';
 
-
-
-
 import 'package:web_profile/widgets/max_size_container_widget.dart';
 
 class MyStatelessWidget extends StatefulWidget {
@@ -29,12 +26,47 @@ class _MyStatelessWidgetState extends State<MyStatelessWidget> {
 
   final thr = Throttling(duration: const Duration(milliseconds: 200));
 
+  void animateToPage(int page) {
+    pageController.animateToPage(
+      page,
+      curve: _curve,
+      duration: _animationDuration,
+    );
+  }
+
+  final menus = <String>[
+    "MAIN",
+    "INFO",
+    "EDUCATION",
+    "EXPERIAN",
+    "CONTRACT",
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      endDrawer: const Drawer(
+      endDrawer: Drawer(
+        width: 250,
         backgroundColor: Colors.black45,
+        child: Builder(builder: (contextIn) {
+          return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: menus.map((e) {
+                return ListTile(
+                  title: Center(
+                    child: Text(
+                      e,
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                  ),
+                  onTap: () {
+                    Scaffold.of(contextIn).closeEndDrawer();
+                    animateToPage(menus.indexOf(e));
+                  },
+                );
+              }).toList());
+        }),
       ),
       appBar: AppBar(
         elevation: 0,
@@ -44,41 +76,43 @@ class _MyStatelessWidgetState extends State<MyStatelessWidget> {
         title: MaxSizeContainerWidget(
           child: Row(
             children: [
-              const Text('Profile'),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Text('Profile'),
+                  Text(
+                    'powered by flutter',
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w100,
+                    ),
+                  ),
+                ],
+              ),
               Expanded(
                 child: LayoutBuilder(
                   builder: (contextIn, boxConstraints) {
-                    return boxConstraints.maxWidth > 400
+                    return boxConstraints.maxWidth > 620
                         ? Row(
                             mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              TextButton(
-                                onPressed: () {},
-                                child: const Text('MAIN'),
-                              ),
-                              const SizedBox(width: 8),
-                              TextButton(
-                                onPressed: () {},
-                                child: const Text('INFO'),
-                              ),
-                              const SizedBox(width: 8),
-                              TextButton(
-                                onPressed: () {},
-                                child: const Text('CONTRACT'),
-                              ),
-                              const SizedBox(width: 8),
-                              TextButton(
-                                onPressed: () {},
-                                child: const Text('EDUCATION'),
-                              ),
-                            ],
+                            children: menus.map((e) {
+                              return Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  const SizedBox(width: 8),
+                                  TextButton(
+                                    onPressed: () => animateToPage(menus.indexOf(e)),
+                                    child: Text(e),
+                                  ),
+                                ],
+                              );
+                            }).toList(),
                           )
                         : Align(
                             alignment: Alignment.centerRight,
                             child: IconButton(
                               icon: const Icon(Icons.more),
-                              onPressed: () =>
-                                  Scaffold.of(contextIn).openEndDrawer(),
+                              onPressed: () => Scaffold.of(contextIn).openEndDrawer(),
                             ),
                           );
                   },
@@ -108,13 +142,7 @@ class _MyStatelessWidgetState extends State<MyStatelessWidget> {
         },
         child: PageView(
           controller: pageController,
-          physics: kIsWeb &&
-                  window.navigator.userAgent
-                      .toString()
-                      .toLowerCase()
-                      .contains('mobile')
-              ? const PageScrollPhysics()
-              : const NeverScrollableScrollPhysics(),
+          physics: kIsWeb && window.navigator.userAgent.toString().toLowerCase().contains('mobile') ? const PageScrollPhysics() : const NeverScrollableScrollPhysics(),
           scrollDirection: Axis.vertical,
           onPageChanged: (index) {
             this.index = index;

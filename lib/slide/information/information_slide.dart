@@ -17,10 +17,7 @@ class InformationSlide extends StatelessWidget {
                 padding: EdgeInsets.only(top: 100, bottom: 40),
                 child: Text(
                   "PERSONAL INFOMATION",
-                  style: TextStyle(
-                      fontSize: 96.0,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white),
+                  style: TextStyle(fontSize: 96.0, fontWeight: FontWeight.w500, color: Colors.white),
                 ),
               ),
               Row(
@@ -121,8 +118,9 @@ class TextDot extends StatelessWidget {
           child: Text(
             text,
             style: const TextStyle(
-              fontSize: 20,
+              fontSize: 18,
               color: Colors.white,
+              fontWeight: FontWeight.w100,
             ),
           ),
         ),
@@ -146,7 +144,11 @@ class TitleText extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Container(width: 40,height: 2,color: Colors.white,),
+          child: Container(
+            width: 40,
+            height: 2,
+            color: Colors.white,
+          ),
         ),
       ],
     );
